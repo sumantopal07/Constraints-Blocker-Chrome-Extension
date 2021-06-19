@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="css/popup.css" />
+    <title>Unhook</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <header>
+        <div id="subbar">
+          <span>Constraints Blocker</span>
+        </div>
+      </header>
+
+      <div id="options">
+        <ul>
+          <li>
+            <label class="option" 
+              >Hide Contraints in binarysearch.com
+              <input
+                type="checkbox"
+                class="check"
+                id="hide_constraints1"
+              />
+              <span class="checkmark"
+              id="hide_constraints"
+              ></span>
+            </label>
+          </li>
+          <li>
+            <label class="option" 
+              >Hide Contraints in leetcode.com
+              <input
+                type="checkbox"
+                class="check"
+                id="hide_constraints2"
+              />
+              <span class="checkmark"
+              id="hide_constraints"
+              ></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <!-- <button id="check" onclick="check"> Hello</button> -->
+      <footer>
+        <a href="troubleshoot.html" class="dark-link">
+          <span>Not working?</span>
+          <svg
+            id="ts-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="1.15em"
+            height="1.15em"
+            viewBox="0 0 500 500"
+          >
+            <title>Troubleshoot</title>
+            <path
+              transform="translate(30,380) scale(-.25) matrix(-1 0 0 1 0 0)"
+              d="m 384,64 q 0,26 -19,45 -19,19 -45,19 -26,0 -45,-19 -19,-19 -19,-45 0,-26 19,-45 19,-19 45,-19 26,0 45,19 19,19 19,45 z m 644,420 -682,-682 q -37,-37 -90,-37 -52,0 -91,37 L 59,-90 Q 21,-54 21,0 21,53 59,91 L 740,772 Q 779,674 854.5,598.5 930,523 1028,484 z m 634,435 q 0,-39 -23,-106 Q 1592,679 1474.5,595.5 1357,512 1216,512 1031,512 899.5,643.5 768,775 768,960 q 0,185 131.5,316.5 131.5,131.5 316.5,131.5 58,0 121.5,-16.5 63.5,-16.5 107.5,-46.5 16,-11 16,-28 0,-17 -16,-28 L 1152,1120 V 896 l 193,-107 q 5,3 79,48.5 74,45.5 135.5,81 61.5,35.5 70.5,35.5 15,0 23.5,-10 8.5,-10 8.5,-25 z"
+            />
+          </svg>
+        </a>
+      </footer>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

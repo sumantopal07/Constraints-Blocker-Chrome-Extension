@@ -1,0 +1,95 @@
+header>div {
+    display: -ms-flexbox
+}
+.button,
+label {
+    -ms-user-select: none
+}
+:root {
+    --primary: #b51f44;
+    --secondary: #e2c0c0;
+    --light: #fff;
+    --header: #555;
+    --dark-link-hover: var(--primary);
+    --dark-link: #70132a
+}
+html[dark_mode=true] {
+    --body: #222;
+    --body-color: var(--light);
+    --dark-link: var(--secondary)
+}
+body {
+    font-size: small;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    margin: 0;
+    color: var(--body-color);
+    background: var(--body)
+}
+a {
+    color: var(--light);
+    text-decoration: none
+}
+a:hover {
+    color: var(--secondary)
+}
+.dark-link {
+    color: var(--dark-link);
+    fill: var(--dark-link)
+}
+.dark-link:hover {
+    color: var(--dark-link-hover);
+    fill: var(--dark-link-hover)
+}
+p {
+    margin-top: 0;
+    margin-bottom: .75em
+}
+header>div {
+    display: -webkit-flex;
+    display: flex;
+    font-size: smaller;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: .15em .3em;
+    background-color: var(--header);
+    color: var(--light)
+}
+.button,
+label {
+    -webkit-user-select: none;
+    user-select: none
+}
+#container {
+    width: 16.5em;
+    margin-left: auto;
+    margin-right: auto
+}
+:root {
+    --button-hover: #d42c55
+}
+#info {
+    padding: .75em .75em .25em
+}
+.title {
+    font-weight: 700
+}
+.button,
+.title {
+    margin-bottom: .5em
+}
+.button {
+    display: block;
+    background-color: var(--primary);
+    border-radius: .3em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    text-align: center
+}
+.button:focus,
+.button:hover {
+    background-color: var(--button-hover);
+    color: var(--light)
+}
+#donate-btns {
+    margin-bottom: .75em
+}

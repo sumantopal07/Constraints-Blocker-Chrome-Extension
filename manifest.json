@@ -1,0 +1,51 @@
+{
+  "name": "Constraints Blocker",
+  "description": "Build an Extension!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "logo_v8.0.png",
+      "32": "logo_v8.0.png",
+      "48": "logo_v8.0.png",
+      "128": "logo_v8.0.png"
+    }
+  },
+  "icons": {
+    "16": "logo_v8.0.png",
+    "32": "logo_v8.0.png",
+    "48": "logo_v8.0.png",
+    "128": "logo_v8.0.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.binarysearch.com/*"
+      ],
+      "js": [
+        "binarysearch.js"
+      ],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "*://*.leetcode.com/*"
+      ],
+      "js": [
+        "leetcode.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "offline_enabled": true
+}
