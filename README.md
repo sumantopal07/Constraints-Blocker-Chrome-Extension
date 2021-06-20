@@ -1,81 +1,15 @@
-# cp-tool
+# Constraints-Blocker-Chrome-Extension
 
-![](https://img.shields.io/badge/version-2.1.1-blue) ![](https://img.shields.io/badge/license-MIT-brightgreen)
+![](https://img.shields.io/badge/version-1.0.0.1-blue) 
 
-**cp-tool** is an auto generator for solved problems at different online judges. It gathers all the problems you have solved at an online judge and generates a git repository for you.
+Chrome Extension will hide the constraints of the given problem as constraints reveal major hints to solve the given problem. This helps to simulate real interview experience practice as in an interview you won't be revealed the constraints. The constraints give major hints of how to solve the problem. For example, if n<=20 then it's obvious the problem will be solved using some brute-force approach. 
 
-Generated [Sample Git Rep](https://github.com/jspw/cp-tool-sample) by [cp-tool](https://github.com/jspw/cp-tool)
 
 ## Supported Platforms
 
-- [Codeforces](https://codeforces.com)
+- [Leetcode](https://leetcode.com)
+- [Binarysearch](https://binarysearch.com)
 
-## Requirments
 
-- python >=3.6
-
-## Instruction
-
-- ### Installation
-
-  - Linux :
-
-  >     pip install cp-tool
-
-  - Windows :
-
-  >     python -m pip install cp-tool
-
-**Note : Please updated version**
-
-- ### Upgrade :
-
-  - Linux :
-
-  > pip install --upgrade cp-tool
-
-  - Windows :
-
-  > python -m pip install --upgrade cp-tool
-
-- ### Usage
-
-  - Using command `cp-tool` it will show the usages
-
-    ![](https://dev-to-uploads.s3.amazonaws.com/i/hu6au7bfw4f44mwemoca.png)
-
-  - Init with git repo :
-
-    - Create a git repository first
-    - Then init
-
-      >     cp-tool -c init -j codeforces
-
-      You will be asked for
-
-      - handle
-
-        - example : `shifat57`
-
-      - repository name (A folder will be created based in repo name)
-
-        - example : `My Cp Track`
-
-      - repository url
-        - example : `https://github.com/jspw/cp-tool-sample`
-
-      ![](https://dev-to-uploads.s3.amazonaws.com/i/s7ja0xgwrft0r5oq4k51.png)
-
-  - Update submissions :
-
-    - Go to the repository folder in your local file
-
-    - Then
-
-      > cp-tool -c update -j codeforces
-
-    ![](https://dev-to-uploads.s3.amazonaws.com/i/zl4k70i4cqm6ovcweh6w.png)
-
-## License
-
-[MIT](LICENSE)
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
