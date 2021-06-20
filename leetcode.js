@@ -2,13 +2,13 @@ let prevState;//This stores the constraints of the problem
 const problemPage = "content__u3I1 question-content__JfgR";
 const contestPage = "question-content default-content";
 const CONSTRAINTS_BLOCKED = "**CONSTRAINTS HIDDEN BY EXTENSION**";
-let BLOCK_STATE=false;
 console.log("constraints blocker extension on work on leetcode.com");
-let iteration=0;
+
 function problemsPage() {
     let x = document.getElementsByTagName("*");
     for (let i = 0; i < x.length; i++) {
-        if (x[i].innerText === "Constraints:" && !BLOCK_STATE) {
+        if (x[i].innerText === "Constraints:" && x[i+2].tagName === "UL") {
+            
             const para = document.createElement("p");
             const node = document.createTextNode(CONSTRAINTS_BLOCKED);
             para.appendChild(node);
@@ -17,7 +17,6 @@ function problemsPage() {
             
             x[i + 2].parentNode.replaceChild(para, prevState);
             
-            BLOCK_STATE=true;
             break;
         }
     }
@@ -50,6 +49,11 @@ window.addEventListener("load", myMain, false);
 // based on the request recieved from the user's input change
 // in the popup
 chrome.runtime.onMessage.addListener(function (req) {
+
+    //0 stands for message sent by leetcode button
+    if(req.flag!==1)
+        return ;
+
     //If True then block constraints
     console.log("recieved message");
     if (req.leetcode) {
@@ -60,8 +64,6 @@ chrome.runtime.onMessage.addListener(function (req) {
     else {
         //If False then show constraints which is stored in prevState
         chrome.storage.sync.set({ leetcode: false }, function () {
-
-            BLOCK_STATE=false;
 
             let x = document.getElementsByTagName("*");
             for (let i = 0; i < x.length; i++) {

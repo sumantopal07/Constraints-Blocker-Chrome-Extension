@@ -15,7 +15,7 @@ function binarysearchCallback() {
         // currentWindow: true
     }, function (tabs) {
         for (let i = 0; i < tabs.length; i++)
-            chrome.tabs.sendMessage(tabs[i].id, { binarysearch: document.getElementById("hide_constraints1").checked });
+            chrome.tabs.sendMessage(tabs[i].id, { binarysearch: document.getElementById("hide_constraints1").checked, flag: 0 });
     });
 
 }
@@ -26,6 +26,6 @@ function leetcodeCallback() {
         // currentWindow: true
     }, function (tabs) {
         for (let i = 0; i < tabs.length; i++)
-            chrome.tabs.sendMessage(tabs[i].id, { leetcode: document.getElementById("hide_constraints2").checked });
+            chrome.tabs.sendMessage(tabs[i].id, { leetcode: document.getElementById("hide_constraints2").checked, flag: 1 });
     });
 }

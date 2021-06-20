@@ -38,13 +38,22 @@ function init() {
 
     }
 }
+
+
 init();
+
 window.addEventListener("load", myMain, false);
+
 function myMain() {
     setInterval(init, 400);
 }
 
 chrome.runtime.onMessage.addListener(function (req) {
+
+    //0 stands for message sent by binarysearch button
+    if(req.flag!==0)
+        return ;
+
     //If True then block constraints
     if (req.binarysearch) {
         chrome.storage.sync.set({ binarysearch: true }, function () {
@@ -53,7 +62,7 @@ chrome.runtime.onMessage.addListener(function (req) {
             }
         });
     }
-    else {
+    else  {
         //If False then show constraints which is stored in prevState
         chrome.storage.sync.set({ binarysearch: false }, function () {
             try {
