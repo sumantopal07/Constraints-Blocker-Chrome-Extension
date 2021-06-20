@@ -11,19 +11,21 @@ document.getElementById("hide_constraints2").addEventListener("click", leetcodeC
 
 function binarysearchCallback() {
     chrome.tabs.query({
-        active: true,
-        currentWindow: true
+        // active: true,
+        // currentWindow: true
     }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { binarysearch: document.getElementById("hide_constraints1").checked });
+        for (let i = 0; i < tabs.length; i++)
+            chrome.tabs.sendMessage(tabs[i].id, { binarysearch: document.getElementById("hide_constraints1").checked });
     });
 
 }
 
 function leetcodeCallback() {
     chrome.tabs.query({
-        active: true,
-        currentWindow: true
+        // active: true,
+        // currentWindow: true
     }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { leetcode: document.getElementById("hide_constraints2").checked });
+        for (let i = 0; i < tabs.length; i++)
+            chrome.tabs.sendMessage(tabs[i].id, { leetcode: document.getElementById("hide_constraints2").checked });
     });
 }

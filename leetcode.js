@@ -1,96 +1,76 @@
-let prevState;
+let prevState;//This stores the constraints of the problem
 const problemPage = "content__u3I1 question-content__JfgR";
 const contestPage = "question-content default-content";
-const CONSTRAINTS = "**CONSTRAINTS HIDDEN BY EXTENSION**";
+const CONSTRAINTS_BLOCKED = "**CONSTRAINTS HIDDEN BY EXTENSION**";
+let BLOCK_STATE=false;
 console.log("constraints blocker extension on work on leetcode.com");
-
+let iteration=0;
 function problemsPage() {
-    let x = document.getElementsByClassName(problemPage)[0].childNodes[0];
-    let y = x.childNodes;
-    for (var i = 0; i < y.length; i++) {
-        if (y[i].textContent.includes("Constraints") && !y[i + 2].textContent.includes(CONSTRAINTS)) {
-            prevState = x.childNodes[i + 2];
-            x.replaceChild(document.createTextNode(CONSTRAINTS), prevState);
-        }
-    }
+    let x = document.getElementsByTagName("*");
+    for (let i = 0; i < x.length; i++) {
+        if (x[i].innerText === "Constraints:" && !BLOCK_STATE) {
+            const para = document.createElement("p");
+            const node = document.createTextNode(CONSTRAINTS_BLOCKED);
+            para.appendChild(node);
 
-}
-function contestsPage() {
-
-    let x = document.getElementsByClassName(contestPage)[0];
-    let y = x.childNodes;
-    for (var i = 0; i < y.length; i++) {
-        if (y[i].textContent.includes("Constraints") && !y[i + 2].textContent.includes(CONSTRAINTS)) {
-            prevState = x.childNodes[i + 2];
-            x.replaceChild(document.createTextNode(CONSTRAINTS), prevState);
+            prevState=x[i+2];
+            
+            x[i + 2].parentNode.replaceChild(para, prevState);
+            
+            BLOCK_STATE=true;
+            break;
         }
     }
 }
-function canRunProblemsPage() {
-    return document.getElementsByClassName(problemPage) &&
-        document.getElementsByClassName(problemPage)[0] &&
-        document.getElementsByClassName(problemPage)[0].childNodes &&
-        document.getElementsByClassName(problemPage)[0].childNodes[0];
-}
-function canRunContestsPage() {
-    return document.getElementsByClassName(contestPage) &&
-        document.getElementsByClassName(contestPage)[0] &&
-        document.getElementsByClassName(contestPage)[0].childNodes;
-}
+
+// init executes after fixed interval
+// to either block or show constraints
 function init() {
     try {
         chrome.storage.sync.get(['leetcode'], function (result) {
             if (result.leetcode) {
-                if (canRunProblemsPage())
-                    problemsPage();
-                if (canRunContestsPage())
-                    contestsPage();
+                problemsPage();
             }
         });
     }
-    catch(err){}
-    
-}
-function myMain() {
-    setInterval(init, 111);
-}
+    catch (err) { }
 
+}
 
 init();
 
+function myMain() {
+    setInterval(init, 400);
+}
+
 window.addEventListener("load", myMain, false);
 
+
+// It Blocks or shows the constraints 
+// based on the request recieved from the user's input change
+// in the popup
 chrome.runtime.onMessage.addListener(function (req) {
+    //If True then block constraints
+    console.log("recieved message");
     if (req.leetcode) {
         chrome.storage.sync.set({ leetcode: true }, function () {
-            if (canRunProblemsPage())
-                problemsPage();
-            if (canRunContestsPage())
-                contestsPage();
+            problemsPage();
         });
     }
     else {
+        //If False then show constraints which is stored in prevState
         chrome.storage.sync.set({ leetcode: false }, function () {
-            if (canRunProblemsPage()) {
-                let x = document.getElementsByClassName(problemPage)[0].childNodes[0];
-                let y = x.childNodes;
-                for (var i = 0; i < y.length; i++) {
-                    if (y[i].textContent.includes("Constraints")) {
-                        x.replaceChild(prevState, x.childNodes[i + 2]);
-                    }
-                }
 
-            }
-            if (canRunContestsPage()) {
-                let x = document.getElementsByClassName(contestPage)[0];
-                let y = x.childNodes;
-                for (var i = 0; i < y.length; i++) {
-                    if (y[i].textContent.includes("Constraints")) {
-                        x.replaceChild(prevState, x.childNodes[i + 2]);
-                    }
-                }
+            BLOCK_STATE=false;
 
+            let x = document.getElementsByTagName("*");
+            for (let i = 0; i < x.length; i++) {
+                if (x[i].innerText === "Constraints:") {
+                    x[i+2].parentNode.replaceChild(prevState,x[i+2]);
+                    break;
+                }
             }
+
         });
     }
 })
