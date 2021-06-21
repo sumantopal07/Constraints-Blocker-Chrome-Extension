@@ -1,6 +1,4 @@
 let prevState;//This stores the constraints of the problem
-const problemPage = "content__u3I1 question-content__JfgR";
-const contestPage = "question-content default-content";
 const CONSTRAINTS_BLOCKED = "**CONSTRAINTS HIDDEN BY EXTENSION**";
 console.log("constraints blocker extension on work on leetcode.com");
 
