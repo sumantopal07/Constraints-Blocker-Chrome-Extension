@@ -15,17 +15,17 @@
   "action": {
     "default_popup": "popup/popup.html",
     "default_icon": {
-      "16": "LeetCode_logo_black.png",
-      "32": "LeetCode_logo_black.png",
-      "48": "LeetCode_logo_black.png",
-      "128": "LeetCode_logo_black.png"
+      "16": "logo.png",
+      "32": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
     }
   },
   "icons": {
-    "16": "LeetCode_logo_black.png",
-    "32": "LeetCode_logo_black.png",
-    "48": "LeetCode_logo_black.png",
-    "128": "LeetCode_logo_black.png"
+    "16": "logo.png",
+    "32": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
   },
   "content_scripts": [
     {
