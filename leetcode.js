@@ -1,4 +1,4 @@
-let prevState;//This stores the constraints of the problem
+let prevState;//This stores the constraints of the problem 
 const CONSTRAINTS_BLOCKED = "**CONSTRAINTS HIDDEN BY EXTENSION**";
 console.log("constraints blocker extension on work on leetcode.com");
 
