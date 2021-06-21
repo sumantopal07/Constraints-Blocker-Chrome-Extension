@@ -4,6 +4,8 @@
 
 Chrome Extension will hide the constraints of the given problem as constraints reveal major hints to solve the given problem. This helps to simulate real interview experience practice as in an interview you won't be revealed the constraints. The constraints give major hints of how to solve the problem. For example, if n<=20 then it's obvious the problem will be solved using some brute-force approach. 
 
+## Demo  
+![Alt Text](demo.gif)
 
 ## Supported Platforms
 
