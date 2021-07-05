@@ -33,7 +33,8 @@
         "*://*.binarysearch.com/*"
       ],
       "js": [
-        "binarysearch.js"
+        "binarysearch/binarysearchTestCase.js",
+        "binarysearch/binarysearch.js"
       ],
       "run_at": "document_end"
     },
