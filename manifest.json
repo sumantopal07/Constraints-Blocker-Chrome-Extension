@@ -5,9 +5,7 @@
   "manifest_version": 3,
   "permissions": [
     "storage",
-    "activeTab",
-    "scripting",
-    "tabs"
+    "activeTab"
   ],
   "background": {
     "service_worker": "background.js"
