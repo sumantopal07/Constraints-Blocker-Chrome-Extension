@@ -1,7 +1,7 @@
 {
   "name": "Constraints Blocker",
   "description": "Chrome Extension will hide the constraints of the given problem as constraints reveal major hints to solve the given problem.",
-  "version": "1.0.0.1",
+  "version": "1.2.0.0",
   "manifest_version": 3,
   "permissions": [
     "storage"
