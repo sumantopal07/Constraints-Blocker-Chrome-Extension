@@ -42,6 +42,15 @@
         "leetcode.js"
       ],
       "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "*://*.codechef.com/*"
+      ],
+      "js": [
+        "codechef.js"
+      ],
+      "run_at": "document_end"
     }
   ],
   "offline_enabled": true
