@@ -51,6 +51,15 @@
         "codechef.js"
       ],
       "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "*://*.codeforces.com/*"
+      ],
+      "js": [
+        "codeforces.js"
+      ],
+      "run_at": "document_end"
     }
   ],
   "offline_enabled": true
